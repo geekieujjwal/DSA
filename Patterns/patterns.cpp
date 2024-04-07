@@ -106,19 +106,108 @@ void pattern7()
     }
 }
 
+// Pattern 8 (Full Pyramid)
+void pattern8()
+{
+    for (int row = 0; row < 7; row++)
+    {
+        for (int col = 0; col <= 6 - row - 1; col++)
+        {
+            cout << " ";
+        }
+        for (int col = 0; col < row + 1; col++)
+        {
+            cout << "* ";
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 9 (Inverted Full Pyramid)
+void pattern9()
+{
+    for (int row = 0; row < 7; row++)
+    {
+        for (int col = 0; col < row; col++)
+        {
+            cout << " ";
+        }
+        for (int col = 0; col < 6 - row; col++)
+        {
+            cout << "* ";
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 10 (Rhombus)
+void pattern10()
+{
+    int n = 4;
+    int row = 2 * n;
+    for (int i = 1; i <= row; i++)
+    {
+        int space_count = i > n ? i - (n + 1) : n - i;
+        int star_count = i > n ? 2 * n - i + 1 : i;
+
+        for (int j = 1; j <= space_count; j++)
+        {
+            cout << " ";
+        }
+        for (int k = 1; k <= star_count; k++)
+        {
+            cout << "* ";
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 11 (Hollow Pyramid)
+void pattern11()
+{
+    int n = 4;
+    for (int row = 1; row <= n; row++)
+    {
+        for (int col = 1; col <= n - row; col++)
+        {
+            cout << " ";
+        }
+        for (int col = 1; col <= row; col++)
+        {
+            if (col == 1 || col == row)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
 int main()
 {
-    pattern1();
-    cout << endl;
-    pattern2();
-    cout << endl;
-    pattern3();
-    cout << endl;
-    pattern4();
-    cout << endl;
-    pattern5();
-    cout << endl;
-    pattern6();
-    cout << endl;
-    pattern7();
+    // pattern1();
+    // cout << endl;
+    // pattern2();
+    // cout << endl;
+    // pattern3();
+    // cout << endl;
+    // pattern4();
+    // cout << endl;
+    // pattern5();
+    // cout << endl;
+    // pattern6();
+    // cout << endl;
+    // pattern7();
+    // cout << endl;
+    // pattern8();
+    // cout << endl;
+    // pattern9();
+    // cout << endl;
+    // pattern10();
+    // cout << endl;
+    pattern11();
 }
