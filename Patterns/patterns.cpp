@@ -187,6 +187,148 @@ void pattern11()
     }
 }
 
+// Pattern 12 (Hollow Diamond)
+void pattern12()
+{
+    int n = 5;
+    for (int row = 1; row <= 2 * n; row++)
+    {
+        for (int col = 1; col <= 2 * n - 1; col++)
+        {
+            if (row + col == n + 1 || col - row == n - 1 || row - col == n || row + col == 3 * n)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 13a (Flipped Solid Diamond Method 1)
+void pattern13a()
+{
+    int n = 4;
+    for (int i = 1; i <= 2 * n; i++)
+    {
+        int star = i > n ? i - n : n - i + 1;
+        int space = i > n ? 4 * n - 2 * i + 1 : 2 * i - 1;
+        for (int j = 1; j <= star; j++)
+        {
+            cout << "* ";
+        }
+        for (int j = 1; j <= space; j++)
+        {
+            cout << "  ";
+        }
+        for (int j = 1; j <= star; j++)
+        {
+            cout << "* ";
+        }
+        cout << "\n";
+    }
+}
+
+// OR
+
+// Pattern 13b (Flipped Solid Diamond Method 2)
+void pattern13b()
+{
+    int n = 4;
+    for (int i = 1; i <= 2 * n; i++)
+    {
+        for (int j = 1; j <= 2 * n + 1; j++)
+        {
+            if (i + j <= n + 1 || j - i >= n + 1 || i - j >= n || i + j >= 3 * n + 2)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << "_ ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 14 ()
+void pattern14()
+{
+    int n = 4;
+    int row = 2 * n - 1;
+    for (int i = 1; i <= row; i++)
+    {
+        int rowNum = i > n ? 4 * n - 2 * i - 1 : 2 * i - 1;
+        for (int j = 1; j <= rowNum; j++)
+        {
+            if (j % 2 == 0)
+            {
+                cout << "* ";
+            }
+            else if (i > n)
+            {
+                cout << 2 * n - i << " ";
+            }
+            else
+            {
+                cout << i << " ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 15 ()
+void pattern15()
+{
+    int n = 10;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            if (i == 1 || j == 1 || i + j == n + 1)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 16 ()
+void pattern16()
+{
+    int n = 5;
+    for (int i = 1; i <= n; i++)
+    {
+        int num = i == 1 || i == n ? i : i + 1;
+        for (int j = 1; j <= num; j++)
+        {
+            if (j == 1 || i == n)
+            {
+                cout << j << " ";
+            }
+            else if (j == num)
+            {
+                cout << j - 1 << " ";
+            }
+            else
+            {
+                cout << "_ ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
 int main()
 {
     // pattern1();
@@ -209,5 +351,17 @@ int main()
     // cout << endl;
     // pattern10();
     // cout << endl;
-    pattern11();
+    // pattern11();
+    // cout << endl;
+    // pattern12();
+    // cout << endl;
+    // pattern13a();
+    // cout << endl;
+    // pattern13b();
+    // cout << endl;
+    // pattern14();
+    // cout << endl;
+    // pattern15();
+    // cout << endl;
+    pattern16();
 }
