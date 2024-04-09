@@ -329,6 +329,31 @@ void pattern16()
     }
 }
 
+// Pattern 17 ()
+void pattern17()
+{
+    int n = 5;
+    for (int i = 1; i <= n; i++)
+
+    {
+        char ch = 'A' - 1;
+
+        for (int j = 1; j <= 2 * i - 1; j++)
+        {
+            if (i >= j)
+            {
+                ch++;
+            }
+            else
+            {
+                ch--;
+            }
+            cout << ch;
+        }
+        cout << "\n";
+    }
+}
+
 int main()
 {
     // pattern1();
@@ -363,5 +388,7 @@ int main()
     // cout << endl;
     // pattern15();
     // cout << endl;
-    pattern16();
+    // pattern16();
+    // cout << endl;
+    pattern17();
 }
