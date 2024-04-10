@@ -354,6 +354,93 @@ void pattern17()
     }
 }
 
+// Pattern 18 (Numeric hollow inverted half pyramid)
+void pattern18()
+{
+    int n = 8;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n - i + 1; j++)
+        {
+            if (j == 1)
+            {
+                cout << i << " ";
+            }
+            else if (i == 1)
+            {
+                cout << j << " ";
+            }
+            else if (i + j == n + 1)
+            {
+                cout << n << " ";
+            }
+            else
+            {
+                cout << "_ ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 19 (Numeric palindrome equilateral pyramid)
+void pattern19()
+{
+    int n = 5;
+    for (int i = 1; i <= n; i++)
+    {
+        int start = 1;
+        for (int j = 1; j <= n + i - 1; j++)
+        {
+            if (i + j >= n + 1)
+            {
+                cout << start << " ";
+                if (j < n)
+                {
+                    start++;
+                }
+                else
+                {
+                    start--;
+                }
+            }
+            else
+            {
+                cout << "_ ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 20 (Numeric palindrome equilateral pyramid)
+void pattern20()
+{
+    int n = 6;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= 4 * n - 3; j++)
+        {
+            if (i + j <= 2 * n - 1 || j - i >= 2 * n - 1)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                if (i % 2 == 1 && j % 2 == 1 || i % 2 == 0 && j % 2 == 0)
+                {
+                    cout << i << " ";
+                }
+                else
+                {
+                    cout << "* ";
+                }
+            }
+        }
+        cout << "\n";
+    }
+}
+
 int main()
 {
     // pattern1();
@@ -390,5 +477,11 @@ int main()
     // cout << endl;
     // pattern16();
     // cout << endl;
-    pattern17();
+    // pattern17();
+    // cout << endl;
+    // pattern18();
+    // cout << endl;
+    // pattern19();
+    // cout << endl;
+    pattern20();
 }
