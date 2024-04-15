@@ -441,6 +441,65 @@ void pattern20()
     }
 }
 
+// Pattern 21 ()
+void pattern21()
+{
+    int n = 4;
+    for (int i = 1; i <= 2 * n - 1; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            if (i <= n && i >= j || i > n && i + j <= 2 * n)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 22 ()
+void pattern22()
+{
+    int n = 6;
+    for (int i = 1; i <= n; i++)
+    {
+        int num; // Default value after declaring an int is 1
+        for (int j = 1; j <= i; j++)
+        {
+            cout << num << " ";
+            num++;
+        }
+        cout << "\n";
+    }
+}
+
+// Pattern 23 ()
+void pattern23()
+{
+    int n = 4;
+    for (int i = 1; i <= 2 * n; i++)
+    {
+        for (int j = 1; j <= 2 * n; j++)
+        {
+            bool condition = i <= n ? (i >= j || i + j >= 2 * n + 1) : (i + j <= 2 * n + 1 || i <= j);
+            if (condition)
+            {
+                cout << "* ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
 int main()
 {
     // pattern1();
@@ -483,5 +542,11 @@ int main()
     // cout << endl;
     // pattern19();
     // cout << endl;
-    pattern20();
+    // pattern20();
+    // cout << endl;
+    // pattern21();
+    // cout << endl;
+    // pattern22();
+    // cout << endl;
+    // pattern23();
 }
