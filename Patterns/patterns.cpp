@@ -1,4 +1,6 @@
 #include <iostream>
+#include "patterns.h"
+
 using namespace std;
 
 // Pattern 1 (Square)
@@ -500,8 +502,10 @@ void pattern23()
     }
 }
 
-int main()
+// Print all patterns
+void printPatterns()
 {
+    cout << "Hi there! I am from patterns.cpp" << endl;
     // pattern1();
     // cout << endl;
     // pattern2();
