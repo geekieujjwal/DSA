@@ -194,6 +194,81 @@ void transposeOfMatrix(int arr[][4], int rows, int cols)
     }
 }
 
+void shiftNegativeToLeft(int arr[], int sizeOfArr){
+    cout << "Original Array: ";
+  for (int i = 0; i < sizeOfArr; i++) {
+    cout << arr[i] << " ";
+  }
+  cout << endl;
+  cout << "Array after updation: ";
+  // ----->>>> FIRST APPROACH WITH TWO POINTERS
+//   int left = 0;
+//   int right = sizeOfArr - 1;
+//   while (left < right) {
+//     if (arr[left] > 0) {
+//       swap(arr[left], arr[right]);
+//       right--;
+//     } else {
+//       left++;
+//     }
+//   }
+
+    // ------>>>> SECOND APPROACH WITH TWO POINTERS
+  int index = 0;
+  int j = 0;
+  while (index < sizeOfArr) {
+    if (arr[index] > 0) {
+      index++;
+    } else {
+      swap(arr[index], arr[j]);
+      index++;
+      j++;
+    }
+  }
+
+  //Printing the array
+  for (int i = 0; i < sizeOfArr; i++) {
+    cout << arr[i] << " ";
+  }
+}
+
+
+void sortZeroOneTwo(int nums[], int sizeOfArr){
+    int left = 0;
+   int right = sizeOfArr - 1;
+   for (int i = 0; i <= right;) {
+     if (nums[i] == 0) {
+       swap(nums[i], nums[left]);
+       left++;
+       i++;
+     } else if (nums[i] == 2) {
+       swap(nums[i], nums[right]);
+       right--;
+     } else {
+       i++;
+     }
+   }
+   // Printing the array
+   for (int i = 0; i < sizeOfArr; i++) {
+     cout << nums[i] << " ";
+   }
+}
+
+void shiftElementByk(int arr[], int sizeOfArr){
+    cout << "Enter the no. with which you want to make the shift: ";
+    int k;
+    cin >> k;
+    int ans[sizeOfArr];
+    for (int index = 0; index < sizeOfArr; index++) {
+        int indexNew = (index + k) % sizeOfArr;
+        ans[indexNew] = arr[index];
+    }
+    // Printing the array
+    for (int i = 0; i < sizeOfArr; i++) {
+        cout << ans[i] << " ";
+    }
+}
+
 void printArrays()
 {
     cout << "Hi there! I am from arrays.cpp" << endl;
@@ -223,4 +298,24 @@ void printArrays()
     // int rows = sizeof(arr) / sizeof(arr[0]);
     // int cols = sizeof(arr[0]) / sizeof(int);
     // transposeOfMatrix(arr, rows, cols);
+
+    // ----------->>> SHIFTING ALL NEGATIVE NOs TO THE LEFT SIDE <<<<------------------
+    // int arr[7] = {23, -7, 12, -10, -11, 40, 60};
+    // int sizeOfArr = sizeof(arr) / sizeof(int);
+
+    // shiftNegativeToLeft(arr, sizeOfArr);
+
+    // ----------->>> SORTING ZERO ONE AND TWO NUMBERS <<<<------------------
+    // int nums[] = {2, 0, 2, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0};
+    // int sizeOfArr = sizeof(nums) / sizeof(int);
+    
+    // sortZeroOneTwo(nums, sizeOfArr);
+
+    // ----------->>> SHIFTING ELEMENTS BY k NUMBER <<<<------------------
+    // int arr[6] = {10, 20, 30, 40, 50, 60};
+    // int sizeOfArr = sizeof(arr) / sizeof(int);
+
+    // shiftElementByk(arr, sizeOfArr);
+
+    cout << endl;
 }
