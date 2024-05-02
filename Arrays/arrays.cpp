@@ -269,6 +269,51 @@ void shiftElementByk(int arr[], int sizeOfArr){
     }
 }
 
+void rotateBy90(int row, int col, int arr[][4]){
+    // Transposing the matrix
+  for (int i = 0; i < row; i++) {
+    for (int j = i; j < col; j++) {
+      swap(arr[i][j], arr[j][i]);
+    }
+  }
+
+  // Now reversing each row
+  for (int i = 0; i < row; i++) {
+    int left = 0;
+    int right = row - 1;
+    while (left < right) {
+      swap(arr[i][left], arr[i][right]);
+      left++;
+      right--;
+    }
+  }
+
+  // Printing the array
+  for (int i = 0; i < row; i++) {
+    for (int j = 0; j < col; j++) {
+      cout << arr[i][j] << " ";
+    }
+    cout << endl;
+  }
+}
+
+int findindMissingNo(int arr[], int sizeOfArr){
+    for (int i = 1; i <= sizeOfArr; i++) {
+    bool targetFound = false;
+    for (int j = 0; j < sizeOfArr; j++) {
+      if (i == arr[j]) {
+        targetFound = true;
+        break;
+      }
+    }
+    if (!targetFound) {
+      cout << "Missing no. found is: " << i;
+      return 0;
+    }
+  }
+  return 1;
+}
+
 void printArrays()
 {
     cout << "Hi there! I am from arrays.cpp" << endl;
@@ -316,6 +361,19 @@ void printArrays()
     // int sizeOfArr = sizeof(arr) / sizeof(int);
 
     // shiftElementByk(arr, sizeOfArr);
+
+    // ----------->>> ROTATING A 2D ARRAY (MATRIX (n X n)) BY 90deg  <<<<------------------
+    // int arr[4][4] = {
+    //   {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+    // int row = sizeof(arr) / sizeof(arr[0]);
+    // int col = sizeof(arr[0]) / sizeof(int);
+    // rotateBy90(row, col, arr);
+
+    // ----------->>> FINDING MISSING NUMBER BETWEEN 0 TO n IN AN ARRAY  <<<<------------------
+    // int arr[] = {1, 7, 3, 2, 5, 6, 8};
+    // int sizeOfArr = sizeof(arr) / sizeof(int);
+
+    // findindMissingNo(arr, sizeOfArr);
 
     cout << endl;
 }
