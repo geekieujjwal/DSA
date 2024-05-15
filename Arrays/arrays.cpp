@@ -314,6 +314,48 @@ int findindMissingNo(int arr[], int sizeOfArr){
   return 1;
 }
 
+bool keyPair(int arr[], int size, int input) {
+  sort(arr, arr + size);
+  int left = 0;
+  int right = size - 1;
+  while (left < right) {
+    if (arr[left] + arr[right] > input) {
+      right--;
+    } else if (arr[left] + arr[right] < input) {
+      left++;
+    } else if (arr[left] + arr[right] == input) {
+      cout << arr[left] << " , " << arr[right] << endl;
+      return true;
+    } else {
+      return false;
+    }
+  }
+  return 0;
+}
+
+int pivotIndex(int arr[], int size) {
+  // BRUTE FORCE
+  for (int i = 0; i < size; i++) {
+    int leftSum = 0;
+    int rightSum = 0;
+    for (int left = 0; left < i; left++) {
+      leftSum = leftSum + arr[left];
+    }
+    for (int right = size - 1; right > i; right--) {
+      rightSum = rightSum + arr[right];
+    }
+    if (leftSum == rightSum) {
+      cout << "Pivot Index found: " << arr[i];
+      return 0;
+    }
+  }
+  cout << "There is no pivot index";
+  return 0;
+
+  // OPTIMIZED WAY
+  
+}
+
 void printArrays()
 {
     cout << "Hi there! I am from arrays.cpp" << endl;
@@ -374,6 +416,27 @@ void printArrays()
     // int sizeOfArr = sizeof(arr) / sizeof(int);
 
     // findindMissingNo(arr, sizeOfArr);
+
+    // ----------->>> KEY PAIR PROBLEM  <<<<------------------
+    // int arr[] = {1, 4, 45, 6, 10, 8};
+    // int size = sizeof(arr) / sizeof(int);
+    // int input;
+    // cout << "Enter the input value: ";
+    // cin >> input;
+    // cout << endl;
+
+    // bool result = keyPair(arr, size, input);
+    // if (result) {
+    //   cout << "Pair Exist";
+    // } else {
+    //   cout << "Pair doesn't exist";
+    // }
+
+    // ----------->>>PIVOT INDEX PROBLEM  <<<<------------------
+    int arr[] = {1, 7, 3, 6, 5, 6};
+    int size = sizeof(arr) / sizeof(int);
+
+    pivotIndex(arr, size);
 
     cout << endl;
 }
