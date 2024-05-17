@@ -356,6 +356,82 @@ int pivotIndex(int arr[], int size) {
   
 }
 
+int findDuplicateNumber(int arr[], int size) {
+  // First Approach
+  // for (int i = 0; i < size; i++) {
+  //   for (int j = 0; j < size; j++) {
+  //     if (arr[i] == arr[j] && i != j) {
+  //       cout << "This is the duplicate number: " << arr[i];
+  //       return 1;
+  //     }
+  //   }
+  // }
+
+  // Second approach
+  // sort(arr, arr + size);
+  // for (int i = 0; i < size - 1; i++) {
+  //   if (arr[i] == arr[i + 1]) {
+  //     cout << "This is the duplicate number: " << arr[i];
+  //   }
+  // }
+
+  // Third approach (Marking -ve visited elements)
+  // int ans = -1;
+  // for (int i = 0; i < size; i++) {
+  //   int index = abs(arr[i]);
+
+  //   // already visited??
+  //   if (arr[index] < 0) {
+  //     ans = index;
+  //     break;
+  //   }
+
+  //   // visited mark
+  //   arr[index] *= -1;
+  // }
+  // cout << "This is the duplicate number: " << ans;
+  // return ans;
+
+  // Fourth Approach (swapping no. with the index no.)
+  while (arr[0] != arr[arr[0]]) {
+    swap(arr[0], arr[arr[0]]);
+  }
+  cout << "This is the duplicate number: " << arr[0];
+  return arr[0];
+}
+
+void findMissingNumberFromDuplicateArray(int arr[], int size) {
+  // First Approach (Visited Method)
+  // for (int i = 0; i < size; i++) {
+  //   int index = abs(arr[i]);
+  //   if (arr[index - 1] > 0) {
+  //     arr[index - 1] *= -1;
+  //   }
+  // }
+
+  // for (int i = 0; i < size; i++) {
+  //   if (arr[i] > 0)
+  //     cout << i + 1 << " ";
+  // }
+
+  // Second Approach (Sorting + Swapping)
+  int i = 0;
+  while (i < size) {
+    int index = arr[i] - 1;
+    if (arr[i] != arr[index]) {
+      swap(arr[i], arr[index]);
+    } else {
+      i++;
+    }
+  }
+
+  for (int i = 0; i < size; i++) {
+    if (arr[i] != i + 1) {
+      cout << i + 1 << " ";
+    }
+  }
+}
+
 void printArrays()
 {
     cout << "Hi there! I am from arrays.cpp" << endl;
@@ -433,10 +509,22 @@ void printArrays()
     // }
 
     // ----------->>>PIVOT INDEX PROBLEM  <<<<------------------
-    int arr[] = {1, 7, 3, 6, 5, 6};
+    // int arr[] = {1, 7, 3, 6, 5, 6};
+    // int size = sizeof(arr) / sizeof(int);
+
+    // pivotIndex(arr, size);
+
+    // ----------->>>DUPLICATE ELEMENT IN THE ARRAY  <<<<------------------
+    // int arr[] = {1, 3, 4, 2, 2};
+    // int size = sizeof(arr) / sizeof(int);
+
+    // findDuplicateNumber(arr, size);
+
+    // ----------->>>MISSING ELEMENT IN A DUPLICATE ARRAY  <<<<------------------
+    int arr[] = {1, 3, 3, 3, 4};
     int size = sizeof(arr) / sizeof(int);
 
-    pivotIndex(arr, size);
+    findMissingNumberFromDuplicateArray(arr, size);
 
     cout << endl;
 }
